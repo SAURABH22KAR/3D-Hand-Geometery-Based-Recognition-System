@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Times New Roman', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gray-600 text-orange-400 px-6 py-3 rounded-lg font-bold text-lg hover:bg-gray-700 transition-colors border-2 border-gray-700;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-yellow-600 transition-colors border-2 border-secondary;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-red-400 transition-colors border-2 border-accent;
+  }
+}
