@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Camera, Hand, ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -20,12 +20,13 @@ const HandCapture = () => {
 
   const startCamera = async () => {
     try {
-      const mediaStream = await navigator.mediaDevices.getUserMedia({ 
-        video: { width: 640, height: 480 } 
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: { width: 640, height: 480 }
       });
       setStream(mediaStream);
       if (videoRef.current) {
         videoRef.current.srcObject = mediaStream;
+        await videoRef.current.play();
       }
       setIsCapturing(true);
       setCaptureStatus('capturing');
@@ -149,6 +150,7 @@ const HandCapture = () => {
                 ref={videoRef}
                 autoPlay
                 playsInline
+                muted
                 className="w-full aspect-video object-cover"
               />
             )}
